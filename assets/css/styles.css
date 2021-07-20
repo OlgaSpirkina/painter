@@ -1,0 +1,40 @@
+header {
+  width: 100vw;
+  height: 11vh;
+}
+header nav {
+  width: 95vw;
+  height: 15vh;
+  display: flex;
+  justify-content: between;
+}
+header nav img {
+  margin: 1rem;
+  width: 10rem;
+  height: 5rem;
+}
+header nav ul {
+  display: flex;
+}
+header nav ul li {
+  list-style: none;
+  margin: 0.5rem;
+}
+header nav ul li a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  color: #000;
+}
+header nav ul li a:hover {
+  color: #c99700;
+}
+
+#section-about {
+  height: 80vh;
+  background-image: url("../img/paintbackground.jpg");
+  clip-path: polygon(0 0, 100% 0, 100% 52%, 0 100%);
+}
+
+/*# sourceMappingURL=styles.css.map */

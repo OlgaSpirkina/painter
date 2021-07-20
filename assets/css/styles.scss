@@ -1,0 +1,38 @@
+header{
+  width: 100vw;
+  height: 11vh;
+  nav{
+    width: 95vw;
+    height: 15vh;
+    display: flex;
+    justify-content: between;
+    img{
+      margin: 1rem;
+      width: 10rem;
+      height: 5rem;
+    }
+    ul{
+      display: flex;
+      li{
+        list-style: none;
+        margin: .5rem;
+        a{
+          text-decoration: none;
+          font-size: 1.5rem;
+          margin: 1rem;
+          padding: .5rem;
+          color: #000;
+          &:hover{
+            color: lighten(#A57C00, 7%);
+          }
+        }
+
+      }
+    }
+  }
+}
+#section-about{
+  height: 80vh;
+  background-image: url("../img/paintbackground.jpg");
+  clip-path: polygon(0 0, 100% 0, 100% 52%, 0 100%);
+}
