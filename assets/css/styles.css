@@ -1,5 +1,5 @@
 header {
-  width: 100vw;
+  width: 95vw;
   height: 11vh;
 }
 header nav {
@@ -35,6 +35,92 @@ header nav ul li a:hover {
   height: 80vh;
   background-image: url("../img/paintbackground.jpg");
   clip-path: polygon(0 0, 100% 0, 100% 52%, 0 100%);
+}
+
+#gallery-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#gallery-section .owl-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 95vw;
+}
+#gallery-section .div-display-picture {
+  border: 1px solid red;
+  margin: 1rem;
+}
+
+.gtco-testimonials {
+  position: relative;
+}
+.gtco-testimonials .owl-nav {
+  display: none;
+}
+.gtco-testimonials .owl-dots {
+  text-align: center;
+}
+.gtco-testimonials .owl-dots span {
+  position: relative;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: block;
+  background-color: #fff;
+  border: 2px solid #01b0f8;
+  margin: 0 5px;
+}
+.gtco-testimonials .owl-dots .active {
+  box-shadow: none;
+}
+.gtco-testimonials .owl-dots .active span {
+  background-color: #01b0f8;
+  box-shadow: none;
+  height: 12px;
+  width: 12px;
+  margin-bottom: -1px;
+}
+.gtco-testimonials .card {
+  background-color: #fff;
+  box-shadow: 0 8px 30px -7px #c9dff0;
+  margin: 0 10px;
+  padding: 0 5px;
+  border-radius: 20px;
+  border: 0;
+}
+.gtco-testimonials .card .card-img-top {
+  max-width: 100%;
+  margin: 1rem auto 0;
+  box-shadow: 0 8px 20px -4px #95abbb;
+  width: 15rem;
+  height: 15rem;
+}
+.gtco-testimonials .active {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.gtco-testimonials .center {
+  opacity: 1;
+}
+.gtco-testimonials .center .card-img-top {
+  max-width: 100%;
+  height: 20rem;
+  width: 20rem;
+}
+
+@media (max-width: 767px) {
+  .gtco-testimonials {
+    margin-top: 20px;
+  }
+}
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+  outline: 0;
+}
+.owl-carousel button.owl-dot {
+  outline: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
