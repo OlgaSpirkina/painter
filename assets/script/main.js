@@ -2,7 +2,7 @@ $( document ).ready(function() {
   if ($("body").data("title") === "main" ||
   $("body").data("title") === "blog" ||
   $("body").data("title") === "account") {
-// le tableau contenant les info de la navbar    
+// le tableau contenant les info de la navbar
     const titlesAndAnchors = [
       {
         nom: "A propos de moi",
@@ -121,6 +121,7 @@ $( document ).ready(function() {
     }
 // Zoom sur chaque image de la gallérie-carrousel
 (function (){
+  const buttonSection = $('#button-section');
   const centralFigure = $(document.createElement('figure'));
   const hugeImg = $(document.createElement('img'));
   $(centralFigure).attr({"id": "figure"});
