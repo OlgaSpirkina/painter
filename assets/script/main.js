@@ -2,6 +2,7 @@ $( document ).ready(function() {
   if ($("body").data("title") === "main" ||
   $("body").data("title") === "blog" ||
   $("body").data("title") === "account") {
+// le tableau contenant les info de la navbar    
     const titlesAndAnchors = [
       {
         nom: "A propos de moi",
@@ -20,6 +21,7 @@ $( document ).ready(function() {
         anchors: "account.html"
       }
     ];
+// Le tableau contenant les icones pour afficher sur chaque page html
     const footerIcons = [
       {
         class: "fa-facebook-square"
@@ -31,7 +33,7 @@ $( document ).ready(function() {
         class: "fa-instagram"
       }
     ];
-// Création de la navbar et le footer communs pour les trois pages
+// Création de la navbar et du footer communs pour les trois pages
     const header = $('#header-navbar');
     const navbar = $(document.createElement('nav'));
     const logo = $(document.createElement('img'));
@@ -72,6 +74,7 @@ $( document ).ready(function() {
     }
 
   }
+// La page index.html
   if ($("body").data("title") === "main"){
 // Création de la section Gallérie
     const gallerySection = $('#gallery-section');
@@ -94,7 +97,7 @@ $( document ).ready(function() {
     const portrait4 = new Paintings("portrait", "portrait d'une personne", "assets/img/portrait4.jpg", ["la série des portraits"]);
     const portrait5 = new Paintings("portrait", "portrait d'une personne", "assets/img/portrait5.jpg", ["la série des portraits"]);
     const galleryArray = [poppy, mountain, sea, village, sunflowers, portrait1, portrait2, portrait3, portrait4, portrait5];
-// // Creation de la div pour l'image principale de la caroussel
+// // Creation de la div pour l'image principale du carrousel
     const secondDivInCaroussel = $(document.createElement('div'));
     const mainDivInCaroussel = $(document.createElement('div'));
     const headingInGallery = $(document.createElement('h2'));
@@ -104,7 +107,7 @@ $( document ).ready(function() {
     $(mainDivInCaroussel).append(secondDivInCaroussel);
     $(gallerySection).append(headingInGallery);
     $(gallerySection).append(mainDivInCaroussel);
-// Creation des elements de la gallérie de class="acryl"
+// Creation des elements de la gallérie de class="acryl" et class="portrait"
     for(let i=0; i<galleryArray.length; i++){
       const divPictureParent =$(document.createElement('div'));
       $(divPictureParent).attr({"class": `card pictures-hidden ${galleryArray[i].technic}_${galleryArray[i].name}`});
@@ -116,29 +119,7 @@ $( document ).ready(function() {
       $(divPictureParent).append(spanForText);
       $(secondDivInCaroussel).append(divPictureParent);
     }
-// Création des boutons pour chaque catégorie de la Gallérie
-    const buttonSection = $('#button-section');
-    const firstButton = $(document.createElement('button'));
-    $(firstButton).attr({"class": "acryl"});
-    $(firstButton).append(document.createTextNode('Acryl'));
-    const secondButton = $(document.createElement('button'));
-    $(secondButton).attr({"class": "portrait"});
-    $(secondButton).append(document.createTextNode('Portraits'));
-    const thirdButton = $(document.createElement('button'));
-    $(thirdButton).attr({"class": "abstraction"});
-    $(thirdButton).append(document.createTextNode('Abstraction'));
-    // $(buttonSection).append(firstButton);
-    // $(buttonSection).append(secondButton);
-    // $(buttonSection).append(thirdButton);
-    $('button').on('click', function(){
-      for(let i=0; i<galleryArray.length; i++){
-        if($('button').hasClass(`${galleryArray[i].technic}_${galleryArray[i].name}`)){
-          $(`.${galleryArray[i].technic}_${galleryArray[i].name}`).removeClass("pictures-hidden");
-        }
-      }
-      console.log($(this).text());
-    });
-
+// Zoom sur chaque image de la gallérie-carrousel
 (function (){
   const centralFigure = $(document.createElement('figure'));
   const hugeImg = $(document.createElement('img'));
@@ -147,7 +128,7 @@ $( document ).ready(function() {
   $(centralFigure).append(hugeImg);
   $(buttonSection).append(centralFigure);
 })();
-
+// Faire apparaitre l'image central au passage de la souris sur chaque image du carrousel
   $(document).on({
       mouseenter: function () {
         $('#huge-img').attr({"src": `${$(this).attr('src')}`, "style": "width: 40rem"});
@@ -167,7 +148,7 @@ $(function() {
      }
   });
 });
-    // Owl Carousel JQuery
+  // DEBUT Owl Carousel JQuery
 (function () {
   "use strict";
 
@@ -200,5 +181,6 @@ $(function() {
     carousels();
   })(jQuery);
 })();
+// FIN OWL CAROUSEL
   }
 });
