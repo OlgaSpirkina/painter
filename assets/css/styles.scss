@@ -204,7 +204,8 @@ header{
     }
   }
 }
-@media (min-width: 350px) and (max-width: 699px){
+@media (min-width: 300px) and (max-width: 699px){
+// Carousel OwlCarousel2
   .gtco-testimonials {
     margin-top: 20px;
   }
@@ -214,17 +215,20 @@ header{
       outline: 0;
     }
   }
-
   button.owl-dot {
     outline: 0;
   }
 }
+// Navbar
   header{
-    width: 60vw;
+    width: 100%;
     height: 30vh;
     nav{
       flex-direction: column;
-      width: 50vw;
+      width: 100%;
+      img{
+        width: 10rem;
+      }
       ul{
         flex-direction: column;
         justify-content: center;
@@ -232,7 +236,47 @@ header{
       }
     }
   }
+  #section-about {
+    height: 80vh;
+    p{
+      margin: 2rem 0;
+      width: 75%;
+  }
+}
   #huge-img{
     display: none;
+  }
+}
+// Spéciale section-about: équilibrer la hauteur de la section par rappor au text
+@media (min-width: 361px) and (max-width: 650px){
+  #section-about {
+    p{
+      margin: 8rem 0;
+      width: 80%;
+  }
+}
+}
+@media (min-width: 700px) and (max-width: 999px){
+  header nav img{
+    scale: .8;
+  }
+  #section-about {
+    height: 55vh;
+    p{
+    margin: 15rem 0;
+    width: 75%;
+    }
+  }
+}
+@media (min-width: 1000px) and (max-width: 1299px){
+  #section-about p{
+    margin: 20rem 0;
+    width: 65%;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1900px){
+  #section-about p{
+    margin: 20rem 0;
+    width: 55%;
   }
 }

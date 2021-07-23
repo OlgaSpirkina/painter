@@ -210,7 +210,7 @@ header nav ul li a:hover {
   scale: 1.2;
 }
 
-@media (min-width: 350px) and (max-width: 699px) {
+@media (min-width: 300px) and (max-width: 699px) {
   .gtco-testimonials {
     margin-top: 20px;
   }
@@ -223,12 +223,15 @@ header nav ul li a:hover {
   }
 
   header {
-    width: 60vw;
+    width: 100%;
     height: 30vh;
   }
   header nav {
     flex-direction: column;
-    width: 50vw;
+    width: 100%;
+  }
+  header nav img {
+    width: 10rem;
   }
   header nav ul {
     flex-direction: column;
@@ -236,8 +239,47 @@ header nav ul li a:hover {
     align-items: center;
   }
 
+  #section-about {
+    height: 80vh;
+  }
+  #section-about p {
+    margin: 2rem 0;
+    width: 75%;
+  }
+
   #huge-img {
     display: none;
+  }
+}
+@media (min-width: 361px) and (max-width: 650px) {
+  #section-about p {
+    margin: 8rem 0;
+    width: 80%;
+  }
+}
+@media (min-width: 700px) and (max-width: 999px) {
+  header nav img {
+    scale: 0.8;
+  }
+
+  #section-about {
+    height: 55vh;
+  }
+  #section-about p {
+    margin: 15rem 0;
+    width: 75%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1299px) {
+  #section-about p {
+    margin: 20rem 0;
+    width: 65%;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1900px) {
+  #section-about p {
+    margin: 20rem 0;
+    width: 55%;
   }
 }
 
