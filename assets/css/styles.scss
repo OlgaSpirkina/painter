@@ -1,15 +1,27 @@
+/* création des variables des police et des couleurs */
+:root{
+  --fontnavbar: 'Righteous', cursive;
+  --fontbody: 'Roboto', sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+  font-family: var(--fontbody);
+}
 header{
-  width: 95vw;
+  width: 100%;
   height: 11vh;
   nav{
-    width: 95vw;
-    height: 15vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
     display: flex;
     justify-content: between;
+    background-color: #fff;
+    border-bottom: 1px solid #95abbb;
     img{
-      margin: 1rem;
-      width: 10rem;
-      height: 5rem;
+      margin: 1.1rem;
+      scale: 1.2;
     }
     ul{
       display: flex;
@@ -22,6 +34,7 @@ header{
           margin: 1rem;
           padding: .5rem;
           color: #000;
+          font-family: var(--fontnavbar);
           &:hover{
             color: lighten(#A57C00, 7%);
           }
@@ -32,23 +45,42 @@ header{
   }
 }
 #section-about{
-  height: 80vh;
+  height: 70vh;
   background-image: url("../img/paintbackground.jpg");
-  clip-path: polygon(0 0, 100% 0, 100% 52%, 0 100%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  // clip-path: polygon(0 0, 100% 0, 100% 52%, 0 100%);
+  p{
+    position: absolute;
+    background-color: rgba(250, 250, 250, .5);
+    padding: 2rem;
+    margin-top: 25rem;
+    border-radius: 1rem;
+    width: 45vw;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    .colored-span{
+      font-weight: bolder;
+      color: #911407;
+    }
+  }
 }
 #gallery-section{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: var(--fontnavbar);
   .owl-carousel{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 95vw;
-    // div img{
-    //   width: 15vw;
-    // }
   }
   .div-display-picture{
     // width: 40vw;
@@ -57,8 +89,35 @@ header{
     margin: 1rem;
   }
 }
-.pictures-hidden{
-  // display: none;
+#lower-section{
+  height: 50vh;
+  background-image: url("../img/acrylbackground.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#huge-img{
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 30rem;
+  border-radius: 1.5rem;
+}
+#button-section{
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button{
+    width: 7vw;
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+  }
+}
+#huge-button{
+  width: 60rem;
 }
 // Début de CAROUSEL (jusqu'à la ligne 134)
 .gtco-testimonials {
@@ -68,6 +127,7 @@ header{
   }
   .owl-dots {
     text-align: center;
+    margin: 1rem;
     span {
       position: relative;
       height: 10px;
@@ -75,13 +135,13 @@ header{
       border-radius: 50%;
       display: block;
       background-color: #fff;
-      border: 2px solid #01b0f8;
+      border: 2px solid #95abbb;
       margin: 0 5px;
     }
     .active {
       box-shadow: none;
       span {
-        background-color: #01b0f8;
+        background-color: #95abbb;
         box-shadow: none;
         height: 12px;
         width: 12px;
@@ -94,7 +154,7 @@ header{
     box-shadow: 0 8px 30px -7px #c9dff0;
     margin: 0 10px;
     padding: 0 5px;
-    border-radius: 20px;
+    border-radius: 1.5rem;
     border: 0;
     .card-img-top {
       max-width: 100%;
@@ -102,6 +162,7 @@ header{
       box-shadow: 0 8px 20px -4px #95abbb;
       width: 15rem;
       height: 15rem;
+      border-radius: 1.5rem;
     }
   }
   .active {
@@ -117,12 +178,36 @@ header{
     }
   }
 }
-@media (max-width: 767px) {
+// FIN CAROUSEL
+#footer{
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #95abbb;
+  p{
+    width: 45vw;
+    display: inline-block;
+  }
+  #social-media{
+    width: 45vw;
+    display: flex;
+    justify-content: flex-end;
+    li{
+      list-style: none;
+      margin: .5rem;
+      color: #95abbb;
+      &:hover{
+        color: darken(#95abbb, 10%);
+        scale: 1.2;
+      }
+    }
+  }
+}
+@media (min-width: 350px) and (max-width: 699px){
   .gtco-testimonials {
     margin-top: 20px;
   }
-}
-
 .owl-carousel {
   .owl-nav button {
     &.owl-next, &.owl-prev {
@@ -134,4 +219,20 @@ header{
     outline: 0;
   }
 }
-// FIN CAROUSEL
+  header{
+    width: 60vw;
+    height: 30vh;
+    nav{
+      flex-direction: column;
+      width: 50vw;
+      ul{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  #huge-img{
+    display: none;
+  }
+}

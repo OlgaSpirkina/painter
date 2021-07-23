@@ -5,7 +5,7 @@ $( document ).ready(function() {
     const titlesAndAnchors = [
       {
         nom: "A propos de moi",
-        anchors: "index.html#main-section"
+        anchors: "index.html#section-about"
       },
       {
         nom: "Gallérie",
@@ -20,13 +20,22 @@ $( document ).ready(function() {
         anchors: "account.html"
       }
     ];
+    const footerIcons = [
+      {
+        class: "fa-facebook-square"
+      },
+      {
+        class: "fa-pinterest-square"
+      },
+      {
+        class: "fa-instagram"
+      }
+    ];
 // Création de la navbar et le footer communs pour les trois pages
     const header = $('#header-navbar');
     const navbar = $(document.createElement('nav'));
     const logo = $(document.createElement('img'));
     const ul = $(document.createElement('ul'));
-    const main = $('#main-section');
-    const about = $(document.createElement('section'));
     // anonymous self-invoking fonction qui crée les elements de la navbar
     (function (){
       for(let i=0; i<titlesAndAnchors.length; i++){
@@ -35,9 +44,8 @@ $( document ).ready(function() {
         anchor.attr( {"href": `${titlesAndAnchors[i].anchors}`,"class": "link-in-navbar"});
         individualLi.attr({"class": "list-item "});
         $(ul).append(individualLi);
-        anchor.append(document.createTextNode(titlesAndAnchors[i].nom));
+        $(anchor).append(document.createTextNode(titlesAndAnchors[i].nom));
         $(individualLi).append(anchor);
-        $(main).append(about.attr({"id": "section-about"}));
       }
     })();
     $(logo).attr({"src": "assets/img/julialogo.png", "alt": "Logo de Julia", "id": "logo-img"});
@@ -46,7 +54,25 @@ $( document ).ready(function() {
     $(header).append(navbar);
       $('.link-in-navbar').on('mouseenter', function(){
         console.log($(this).text());
-      })
+      });
+// Création du footer pour les trois pages
+    const footer = $('#footer');
+    const copyright = $(document.createElement('p'));
+    $(copyright).append(document.createTextNode('Olga Spirkina©2021'));
+    const socialMedia = $(document.createElement('ul'));
+    $(socialMedia).attr({"id": "social-media"});
+    $(footer).append(copyright);
+    $(footer).append(socialMedia);
+    for(let i=0; i<footerIcons.length; i++){
+      let mediaIcons = $(document.createElement('li'));
+      let icon = $(document.createElement('i'));
+      $(icon).attr({"class": `fab fa-2x ${footerIcons[i].class}`});
+      $(mediaIcons).append(icon);
+      $(socialMedia).append(mediaIcons);
+    }
+
+  }
+  if ($("body").data("title") === "main"){
 // Création de la section Gallérie
     const gallerySection = $('#gallery-section');
     class Paintings {
@@ -62,26 +88,86 @@ $( document ).ready(function() {
     const sea = new Paintings("acryl", "Les falaises", "assets/img/acryl-sea.jpg", ["les nuances du gris et blue"]);
     const village = new Paintings("acryl", "Village sous le soleil", "assets/img/acryl-village.jpg", ["la vivacité des couleurs"]);
     const sunflowers = new Paintings("acryl", "Tournesols", "assets/img/acryl-sunflower.jpg", ["la beauté des contrasts"]);
-    const galleryArray = [poppy, mountain, sea, village, sunflowers];
+    const portrait1 = new Paintings("portrait", "portrait d'une personne", "assets/img/portrait1.jpg", ["la série des portraits"]);
+    const portrait2 = new Paintings("portrait", "portrait d'une personne", "assets/img/portrait2.jpg", ["la série des portraits"]);
+    const portrait3 = new Paintings("portrait", "portrait d'une personne", "assets/img/portrait3.jpg", ["la série des portraits"]);
+    const portrait4 = new Paintings("portrait", "portrait d'une personne", "assets/img/portrait4.jpg", ["la série des portraits"]);
+    const portrait5 = new Paintings("portrait", "portrait d'une personne", "assets/img/portrait5.jpg", ["la série des portraits"]);
+    const galleryArray = [poppy, mountain, sea, village, sunflowers, portrait1, portrait2, portrait3, portrait4, portrait5];
 // // Creation de la div pour l'image principale de la caroussel
     const secondDivInCaroussel = $(document.createElement('div'));
     const mainDivInCaroussel = $(document.createElement('div'));
+    const headingInGallery = $(document.createElement('h2'));
+    $(headingInGallery).append(document.createTextNode('Mes tableaux'));
     $(mainDivInCaroussel).attr({"class": "gtco-testimonials"})
     $(secondDivInCaroussel).attr({"class": "owl-carousel owl-carousel1 owl-theme"});
     $(mainDivInCaroussel).append(secondDivInCaroussel);
+    $(gallerySection).append(headingInGallery);
     $(gallerySection).append(mainDivInCaroussel);
 // Creation des elements de la gallérie de class="acryl"
     for(let i=0; i<galleryArray.length; i++){
       const divPictureParent =$(document.createElement('div'));
-      $(divPictureParent).attr({"class": "card pictures-hidden"});
+      $(divPictureParent).attr({"class": `card pictures-hidden ${galleryArray[i].technic}_${galleryArray[i].name}`});
       const picture = $(document.createElement('img'));
-      $(picture).attr({"class": "card-img-top", "src": `${galleryArray[i].img}`, "alt": `${galleryArray[i].name}`})
+      $(picture).attr({"class": `card-img-top ${galleryArray[i].technic}_${galleryArray[i].name}`, "src": `${galleryArray[i].img}`, "alt": `${galleryArray[i].info}`})
       const spanForText = $(document.createElement('span'));
       spanForText.append(document.createTextNode(galleryArray[i].name));
       $(divPictureParent).append(picture);
       $(divPictureParent).append(spanForText);
       $(secondDivInCaroussel).append(divPictureParent);
     }
+// Création des boutons pour chaque catégorie de la Gallérie
+    const buttonSection = $('#button-section');
+    const firstButton = $(document.createElement('button'));
+    $(firstButton).attr({"class": "acryl"});
+    $(firstButton).append(document.createTextNode('Acryl'));
+    const secondButton = $(document.createElement('button'));
+    $(secondButton).attr({"class": "portrait"});
+    $(secondButton).append(document.createTextNode('Portraits'));
+    const thirdButton = $(document.createElement('button'));
+    $(thirdButton).attr({"class": "abstraction"});
+    $(thirdButton).append(document.createTextNode('Abstraction'));
+    // $(buttonSection).append(firstButton);
+    // $(buttonSection).append(secondButton);
+    // $(buttonSection).append(thirdButton);
+    $('button').on('click', function(){
+      for(let i=0; i<galleryArray.length; i++){
+        if($('button').hasClass(`${galleryArray[i].technic}_${galleryArray[i].name}`)){
+          $(`.${galleryArray[i].technic}_${galleryArray[i].name}`).removeClass("pictures-hidden");
+        }
+      }
+      console.log($(this).text());
+    });
+
+(function (){
+  const centralFigure = $(document.createElement('figure'));
+  const hugeImg = $(document.createElement('img'));
+  $(centralFigure).attr({"id": "figure"});
+  $(hugeImg).attr({"id": "huge-img"});
+  $(centralFigure).append(hugeImg);
+  $(buttonSection).append(centralFigure);
+})();
+
+  $(document).on({
+      mouseenter: function () {
+        $('#huge-img').attr({"src": `${$(this).attr('src')}`, "style": "width: 40rem"});
+      }
+  }, '.card-img-top');
+
+// Faire disparaitre l'image central en clickant sur le body
+$(function() {
+  $(document).on("click",function (e) {
+     if (e.target.id=="body-id") {
+       $("#huge-img").fadeToggle(500);
+       e.stopPropagation(); // l'evenement courant le click sur le body ne se propage plus loin
+       return false;
+     }
+     else if ($("#huge-img").is(":visible")) {
+       $("#huge-img").fadeOut(500);
+     }
+  });
+});
+    // Owl Carousel JQuery
 (function () {
   "use strict";
 
@@ -114,9 +200,5 @@ $( document ).ready(function() {
     carousels();
   })(jQuery);
 })();
-
-
-
-
   }
 });
